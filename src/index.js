@@ -13,6 +13,12 @@ const argvToDict = (argv) => {
   return {...args, script};
 }
 
+const getBaseAxiosConfig = (baseURL, username, password) => ({
+  baseURL,
+  auth: {username, password}
+});
+
 module.exports = {
-  argvToDict
+  argvToDict,
+  getBaseAxiosConfig
 }
