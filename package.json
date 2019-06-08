@@ -1,6 +1,6 @@
 {
   "name": "jlafer-node-util",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "my common nodejs program utilities",
   "main": "distrib/index.js",
   "scripts": {
