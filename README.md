@@ -8,6 +8,36 @@ This is my collection of utility functions that I find useful in nearly all Node
 
 ## Helper Functions
 
+### makeDir(path, mask)
+
+### ensurePathExists(parentPath, mask, ...pathNodes)
+
+### openFile(path, mode)
+
+### writeToFile = (fd, text)
+
+### closeFile = (fd)
+
+### openStream = (path)
+
+### writeRcdsToStream = (stream, rcds)
+
+### writeToStream = (stream, text)
+
+### closeStream = (stream)
+
+### readTextFile(path)
+
+### readJsonFile(path)
+
+### readJsonFiles(dir, filenames)
+
+### writeToTextFile(path, str)
+
+### writeToBinaryFile(path, data)
+
+### writeToJsonFile(path, value)
+
 ### argvToDict(argv)
 Converts the argument, typically filled from process.argv, to a dictionary object.
 ```

@@ -24,6 +24,63 @@ async function ensurePathExists(parentPath, mask, ...pathNodes) {
   return path;
 }
 
+const openFile = (path, mode) => {
+  return new Promise(function(resolve, reject) {
+    fs.open(path, mode,
+      function(err, fd) {
+        if (err)
+          reject(err);
+        else
+          resolve(fd);
+      }
+    );
+  });
+};
+
+const writeToFile = (fd, text) => {
+  return new Promise(function(resolve, reject) {
+    fs.appendFile(fd, text, 'utf8',
+      function(err, fd) {
+        if (err)
+          reject(err);
+        else
+          resolve(null);
+      }
+    );
+  });
+};
+
+const closeFile = (fd) => {
+  return new Promise(function(resolve, reject) {
+    fs.close(fd,
+      function(err, fd) {
+        if (err)
+          reject(err);
+        else
+          resolve(null);
+      }
+    );
+  });
+};
+
+const openStream = (path) => {
+  return fs.createWriteStream(path);
+};
+
+const writeRcdsToStream = (stream, rcds) => {
+  rcds.forEach(rcd => {
+    writeToStream(stream, rcd);
+  });
+};
+
+const writeToStream = (stream, text) => {
+  stream.write(text);
+};
+
+const closeStream = (stream) => {
+  stream.end();
+};
+
 function readTextFile(path) {
   return new Promise(function(resolve, reject) {
     fs.readFile(path, 'utf8',
@@ -97,12 +154,19 @@ const getBaseAxiosConfig = (baseURL, username, password) => ({
 
 module.exports = {
   ensurePathExists,
+  openFile,
+  writeToFile,
+  closeFile,
   readTextFile,
   readJsonFile,
   readJsonFiles,
   writeToTextFile,
   writeToJsonFile,
   writeToBinaryFile,
+  openStream,
+  writeRcdsToStream,
+  writeToStream,
+  closeStream,
   argvToDict,
   getBaseAxiosConfig
 }

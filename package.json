@@ -1,6 +1,6 @@
 {
   "name": "jlafer-node-util",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "my common nodejs program utilities",
   "main": "distrib/index.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "@babel/core": "^7.4.0",
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.4.2",
-    "jest": "^24.5.0",
+    "jest": "^24.8.0",
     "nodemon": "^1.18.10"
   },
   "dependencies": {
