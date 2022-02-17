@@ -10,7 +10,11 @@ This is my collection of utility functions that I find useful in nearly all Node
 
 ### makeDir(path, mask)
 
+### checkDirExists(path)
+
 ### ensurePathExists(parentPath, mask, ...pathNodes)
+
+### copyTextFile(indir, outdir, filename)
 
 ### openFile(path, mode)
 
