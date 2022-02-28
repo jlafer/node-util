@@ -49,7 +49,6 @@ const args = argvToDict(process.argv);
 const fileName = args.filename;
 ```
 
-
 ### getBaseAxiosConfig(baseURL, username, password)
 Returns a base Axios configuration that uses Basic authentication.
 ```
@@ -58,3 +57,6 @@ const baseConfig = getBaseAxiosConfig(
 );
 return axios({...baseConfig, url: `FlexFlows`});
 ```
+
+### executeShellCmd(cmd)
+Runs the `cmd` string argument as a command in the NodeJS operating system. The command returns a Promise which resolves to the `stdout` output on success or the `stderr` output on a failure.

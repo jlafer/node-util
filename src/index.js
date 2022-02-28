@@ -1,3 +1,4 @@
+const {exec} = require("child_process");
 const {fromPairs} = require('ramda');
 const fs = require('fs');
 
@@ -157,6 +158,20 @@ function checkDirExists(path) {
   });
 }
 
+function executeShellCmd(cmd) {
+  return new Promise(function(resolve, _reject) {
+    exec(cmd, (error, stdout, stderr) => {
+      if (error) {
+          return resolve(error.message);
+      }
+      if (stderr) {
+          return resolve(stderr);
+      }
+      resolve(stdout);
+    });
+  })
+}
+
 const argToKVPairs = (arg, idx) => {
   const re = /([^=]+)[=](.+)/;
   const found = arg.match(re);
@@ -179,6 +194,7 @@ module.exports = {
   checkDirExists,
   copyTextFile,
   ensurePathExists,
+  executeShellCmd,
   openFile,
   writeToFile,
   closeFile,
